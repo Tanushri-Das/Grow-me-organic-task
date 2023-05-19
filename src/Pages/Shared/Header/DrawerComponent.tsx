@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 import MenuIcon from '@mui/icons-material/Menu';
 import './Drawercomponent.css'
 
-
 interface DrawerComponentProps {
   navItems: { label: string; path: string }[];
   handleNavItemClick: () => void;

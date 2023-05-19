@@ -29,7 +29,7 @@ const Header = () => {
   const navItems = [
     { label: "Home", path: "/" },
     { label: "About", path: "/about" },
-    { label: "Contact", path: "/contact" },
+    { label: "Contact", path: "/contact" }
   ];
   return (
     <AppBar position="static" onClick={handleDrawerToggle}>
