@@ -1,0 +1,9 @@
+.button:focus {
+    outline: none;
+    border: none;
+}
+
+.text:hover {
+
+    color: white;
+}
