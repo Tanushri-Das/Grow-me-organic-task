@@ -11,19 +11,18 @@ import "react-toastify/dist/ReactToastify.css";
 
 const PostsTable: React.FC = () => {
   const [posts, setPosts] = useState<Post[]>([]);
-  const [isLoading, setIsLoading] = useState(true); // Loading state
+  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
     const checkFormData = async () => {
-      // Check if necessary information is available
+
       const formData = localStorage.getItem("formData");
       if (!formData) {
-        // Delay the redirect to ensure the toast message is displayed
         setTimeout(() => {
           navigate("/");
           if (!toast.isActive("formWarning")) {
-            toast.error("Please fill out the form before accessing the next page.", {
+            toast.error("Please fill up the form before accessing the next page.", {
               toastId: "formWarning",
               position: toast.POSITION.TOP_CENTER,
             });
@@ -43,7 +42,7 @@ const PostsTable: React.FC = () => {
         );
         const data: Post[] = response.data;
         setPosts(data);
-        setIsLoading(false); // Set loading state to false after data is fetched
+        setIsLoading(false);
       } catch (error) {
         console.error("Error fetching posts:", error);
       }
@@ -71,7 +70,7 @@ const PostsTable: React.FC = () => {
       <div style={{ width: "100%", maxWidth: "1000px", height: "100%" }}>
         {isLoading ? (
           <div style={{ display: "flex", justifyContent: "center", alignItems: "center"}}>
-            <CircularProgress />
+            <CircularProgress color="secondary" />
           </div>
         ) : (
           <DataGrid columns={columns} rows={posts} autoPageSize pagination />

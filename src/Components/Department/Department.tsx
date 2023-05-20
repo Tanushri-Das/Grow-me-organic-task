@@ -15,7 +15,7 @@ type Department = {
   sub_departments: string[];
   selected?: boolean;
   collapsed?: boolean;
-  [key: string]: any; // Index signature for dynamic properties
+  [key: string]: any;
 };
 
 const initialData: Department[] = [
@@ -50,7 +50,6 @@ const Department = () => {
       department[subDep] = department.selected;
     });
 
-    // Update the selected state of sub-departments when the parent department is selected
     newData.forEach((dep) => {
       if (dep.sub_departments.includes(department.department)) {
         dep.selected = department.selected;
@@ -60,7 +59,6 @@ const Department = () => {
       }
     });
 
-    // Update the selected state of parent departments
     updateParentDepartmentSelection(newData, index);
 
     setData(newData);
@@ -73,14 +71,12 @@ const Department = () => {
 
     department[subDep] = !department[subDep];
 
-    // Update the selected state of sub-departments when the parent department is selected
     if (department.selected) {
       department.sub_departments.forEach((sub) => {
         department[sub] = true;
       });
     }
 
-    // Update the selected state of parent departments
     updateParentDepartmentSelection(newData, index);
 
     const lastSubDepartmentSelected = department.sub_departments.every(
