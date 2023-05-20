@@ -9,14 +9,14 @@ const Footer = () => {
   const facebookUrl = "https://www.facebook.com/tanushri.das01?mibextid=ZbWKwL";
 
   return (
-    // , position: "fixed", bottom: 0, width: "100%" 
+
     <footer style={{ backgroundColor: "#1976d2", color: "#fff", padding: "30px 0"}}>
       <Grid container justifyContent="center" alignItems="center">
         <Grid item xs={12} md={6}>
           <div style={{margin:'0 auto'}}>
             <Typography
               variant="h6"
-              style={{ textAlign: "center", color: "white", marginBottom: "12px" }}
+              style={{ textAlign: "center", color: "white" }}
             >
               Copyright © 2023 All rights reserved by Tanushri Das
             </Typography>

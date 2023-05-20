@@ -1,14 +1,14 @@
 
-import Header from "../Pages/Shared/Header/Header";
-import Footer from "../Components/Footer/Footer";
 import { Outlet } from "react-router-dom";
+import Header from "../Components/Shared/Header/Header";
+import Footer from "../Components/Shared/Footer/Footer";
 
 const Layout = () => {
   return (
     <div>
-      <Header></Header>
+      <Header/>
       <Outlet></Outlet>
-      <Footer></Footer>
+      <Footer/>
     </div>
   );
 };

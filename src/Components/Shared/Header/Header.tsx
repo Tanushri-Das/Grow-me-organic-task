@@ -35,7 +35,7 @@ const Header = () => {
     <AppBar position="static" onClick={handleDrawerToggle}>
       <Toolbar>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          News
+            GROW ME
         </Typography>
         {isMatch ? (
           <>

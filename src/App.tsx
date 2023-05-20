@@ -18,7 +18,7 @@ function App() {
           element={<Layout />}
         >
           <Route path="/" element={<Home />} />
-          <Route path="/table" element={
+          <Route path="/listofdata" element={
           <>
               <PostsTable/>
               <Department/>

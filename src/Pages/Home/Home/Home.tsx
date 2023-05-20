@@ -1,6 +1,5 @@
 import Form from "../../../Components/Form/Form"
 
-
 const Home = () => {
   return (
     <div>

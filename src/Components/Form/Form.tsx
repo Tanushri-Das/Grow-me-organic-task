@@ -6,7 +6,7 @@ import {
   Typography,
   TextField,
 } from "@mui/material";
-// import "./Form.css";
+
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
@@ -35,14 +35,14 @@ const Form = () => {
 
     // Check if all required information is provided
     if (!name || !phone || !email) {
-      setErrorMessage('Please enter all the required details.');
+      setErrorMessage('Please enter all the required details otherwise you will not be able to access the next page.');
       return;
     }
 
     console.log(formData);
     setFormData(defaultFormData);
     localStorage.setItem("formData", JSON.stringify(formData));
-    navigate('/table');
+    navigate('/listofdata');
   };
 
   return (

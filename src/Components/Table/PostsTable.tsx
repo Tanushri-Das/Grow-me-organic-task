@@ -1,6 +1,8 @@
+
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import {CircularProgress } from "@mui/material";
 import Post from "./Post";
 import "./PostsTable.css";
 import { useNavigate } from "react-router-dom";
@@ -9,6 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const PostsTable: React.FC = () => {
   const [posts, setPosts] = useState<Post[]>([]);
+  const [isLoading, setIsLoading] = useState(true); // Loading state
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,7 +23,7 @@ const PostsTable: React.FC = () => {
         setTimeout(() => {
           navigate("/");
           if (!toast.isActive("formWarning")) {
-            toast.error("Please fill out the form before accessing this page.", {
+            toast.error("Please fill out the form before accessing the next page.", {
               toastId: "formWarning",
               position: toast.POSITION.TOP_CENTER,
             });
@@ -40,6 +43,7 @@ const PostsTable: React.FC = () => {
         );
         const data: Post[] = response.data;
         setPosts(data);
+        setIsLoading(false); // Set loading state to false after data is fetched
       } catch (error) {
         console.error("Error fetching posts:", error);
       }
@@ -65,7 +69,13 @@ const PostsTable: React.FC = () => {
       }}
     >
       <div style={{ width: "100%", maxWidth: "1000px", height: "100%" }}>
-        <DataGrid columns={columns} rows={posts} autoPageSize pagination />
+        {isLoading ? (
+          <div style={{ display: "flex", justifyContent: "center", alignItems: "center"}}>
+            <CircularProgress />
+          </div>
+        ) : (
+          <DataGrid columns={columns} rows={posts} autoPageSize pagination />
+        )}
       </div>
     </div>
   );
